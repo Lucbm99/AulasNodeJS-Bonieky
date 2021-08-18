@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Página de contato</title>
+</head>
+<body>
+    <h1>Aqui é a página de contato do site</h1>
+    <h3>Olá, {{name}} {{lastName}}!</h3>
+    {{#podeBeber}}
+        Você pode beber na festa de hoje, por ser maior de idade!
+    {{/podeBeber}}
+
+    <ul>
+        {{#linguagens}}
+            <li>{{.}}</li>
+        {{/linguagens}}
+        {{^linguagens}}
+            Não há linguagens para ser exibidas.
+        {{/linguagens}}
+    </ul>
+</body>
+</html>
