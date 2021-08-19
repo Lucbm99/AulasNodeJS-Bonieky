@@ -70,7 +70,35 @@ router.get('/sobre', (request: Request, response: Response) => {
 });
 
 router.get('/empresa', (request: Request, response: Response) => {
-    response.send("Página sobre a empresa FFF");
+
+    let time: string = 'Palmeiras';
+    let isPalmeirense: boolean = false;
+
+    if(time === 'Palmeiras') {
+        isPalmeirense = true;
+    }
+    response.render('empresa', {
+        time: 'Palmeiras',
+        estado: 'São Paulo',
+        isPalmeirense,
+        teams: [
+            'Palmeiras',
+            'Santos',
+            'Guarani',
+            'Ponte Preta',
+            'Flamengo',
+            'Brasiliense',
+            'ABC',
+            'Atlético-GO'
+        ],
+        materiasEscolares: [
+            {nome: "Inglês", media: 9},
+            {nome: "Filosofia", media: 8},
+            {nome: "Sociologia", media: 10},
+            {nome: "Artes", media: 6},
+            {nome: "Geografia", media: 9},
+        ]
+    });
 });
 
 export default router; 

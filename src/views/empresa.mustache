@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Empresa</title>
+</head>
+<body>
+    <h2>O time é: {{ time }} e pertence ao estado {{ estado }}</h2>
+    {{#isPalmeirense}}
+        <h2>Olá, você é palmeirense!
+    {{/isPalmeirense}}
+
+    <ul>
+        {{#teams}}
+            <li>{{.}}</li>
+        {{/teams}}
+        {{^teams}}
+            <h3>Não há nenhum time.</h2>
+        {{/teams}}
+    </ul>
+
+    <ul>
+        {{#materiasEscolares}}
+            <li>{{nome}} - Nota: {{media}}</li>
+        {{/materiasEscolares}}
+        {{^materiasEscolares}}
+            <h2>Não há matérias escolares</h2>
+        {{/materiasEscolares}}
+    </ul>
+</body>
+</html>
