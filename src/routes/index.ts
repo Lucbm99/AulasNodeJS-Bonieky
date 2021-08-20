@@ -5,11 +5,14 @@ const router = Router();
 router.get('/', (request: Request, response: Response) => {
     let idade: number = 66;
     let showOld: boolean = false;
-    
+    let car: string = request.query.car as string;
+    let year: string = request.query.year as string;
+    let fuel: string = request.query.fuel as string;
 
     if(idade > 50) {
         showOld = true;
     }
+
 
 
     response.render('pages/home', {
@@ -24,7 +27,10 @@ router.get('/', (request: Request, response: Response) => {
         frasesDoDia: [
             'Alguma coisa muito legal',
             'Outra frase qualquer'
-        ]
+        ],
+        car, 
+        year,
+        fuel,
     });
 });
 
@@ -35,14 +41,21 @@ router.get('/contato', (request: Request, response: Response) => {
     if(idade >= 18) {
         podeBeber = true;
     }
+    
+    let nome: string = request.query.nome as string;
+    let email: string = request.query.email as string;
+
     response.render('pages/contato', {
         name: 'Lucas', 
         lastName: 'Baradel Marchiori',
         podeBeber,
         linguagens: [
             'C#', 'C++', 'Python', 'Scala', 'Ruby', 'PHP', 'Java'
-        ]
+        ],
+        nome,
+        email
     });
+
 });
 
 router.get('/sobre', (request: Request, response: Response) => {
@@ -98,6 +111,38 @@ router.get('/empresa', (request: Request, response: Response) => {
             {nome: "Artes", media: 6},
             {nome: "Geografia", media: 9},
         ]
+    });
+});
+
+router.get('/nome', (request: Request, response: Response) => {
+    
+    //pegar qualquer dado depois do query string
+    let nome: string = request.query.nome as string;
+    let idade: string = request.query.idade as string;
+
+    response.render('pages/nome', {
+        nome,
+        idade
+    });
+});
+
+
+router.get('/idade', (request: Request, response: Response) => {
+
+    let mostrarIdade: boolean = false;
+    let idade: number = 0;
+
+    if(request.query.ano) { 
+        let anoNascimento: number = parseInt(request.query.ano as string);
+        let anoAtual: number = new Date().getFullYear();
+
+        idade = anoAtual - anoNascimento;
+        mostrarIdade = true;
+    }
+
+    response.render('pages/idade', {
+        idade, 
+        mostrarIdade
     });
 });
 

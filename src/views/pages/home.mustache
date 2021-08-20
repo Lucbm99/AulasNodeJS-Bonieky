@@ -23,5 +23,16 @@
             <li>{{.}}</li>
         {{/frasesDoDia}}
     </ul>
+
+    <hr/>
+    <form method="GET">
+        <input type="text" name="car" placeholder="Digite o nome do seu carro... "><br>
+        <input type="number" name="year" placeholder="Digite o ano de seu carro..."><br>
+        <input type="text" name="fuel" placeholder="Digite o combustível"><br>
+        <input type="submit" value="Enviar" />
+    </form>
     
+    {{#car}}
+        Ola! Verifiquei no sistema e os valores digitados foram os seguintes: Carro: {{car}}, Ano: {{year}}, Combustível: {{fuel}}
+    {{/car}}
 {{>partials/footer}}

@@ -13,5 +13,19 @@
             Não há linguagens para ser exibidas.
         {{/linguagens}}
     </ul>
-    
+
+    <form method="GET">
+        <input type="text" name="nome" placeholder="Digite seu nome" >
+        <input type="email" name="email" placeholder="Digite seu e-mail" >
+        <input type="submit" value="Enviar">
+    </form>    
+
+    {{#nome}}
+        Olá, {{nome}}, tudo bem?
+    {{/nome}}
+    <hr/>
+
+    {{#email}}
+        Verifiquei aqui e seu e-mail é esse aqui: {{email}}. Está correto? 
+    {{/email}}
 {{>partials/footer}}
