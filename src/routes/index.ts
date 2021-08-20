@@ -12,7 +12,7 @@ router.get('/', (request: Request, response: Response) => {
     }
 
 
-    response.render('home', {
+    response.render('pages/home', {
         name: 'Lucas',
         idade: 22,
         showOld, 
@@ -35,7 +35,7 @@ router.get('/contato', (request: Request, response: Response) => {
     if(idade >= 18) {
         podeBeber = true;
     }
-    response.render('contato', {
+    response.render('pages/contato', {
         name: 'Lucas', 
         lastName: 'Baradel Marchiori',
         podeBeber,
@@ -66,7 +66,7 @@ router.get('/sobre', (request: Request, response: Response) => {
         ]
     }
     
-    response.render('sobre', about);
+    response.render('pages/sobre', about);
 });
 
 router.get('/empresa', (request: Request, response: Response) => {
@@ -77,7 +77,7 @@ router.get('/empresa', (request: Request, response: Response) => {
     if(time === 'Palmeiras') {
         isPalmeirense = true;
     }
-    response.render('empresa', {
+    response.render('pages/empresa', {
         time: 'Palmeiras',
         estado: 'São Paulo',
         isPalmeirense,

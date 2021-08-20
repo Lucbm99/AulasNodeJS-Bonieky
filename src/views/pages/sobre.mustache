@@ -1,10 +1,5 @@
-<html>
-<head>
-    <title>Página sobre</title>
-</head>
-<body>
-    <h3>{{texto1}}</h3>
-    <h4>{{texto2}}</h4>
+{{>partials/header}}
+
     {{#isVegan}}
         Você irá comer um hamburguer vegetariano, correto?
     {{/isVegan}}
@@ -17,5 +12,5 @@
             Não há materiais escolares disponíveis.
         {{/materiaisEscritorio}}
     </ul>
-</body>
-</html>
+    
+{{>partials/footer}}
