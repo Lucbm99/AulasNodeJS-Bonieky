@@ -1,4 +1,4 @@
-import {Router, Request, Response} from 'express';
+import {Router, Request, Response, request} from 'express';
 
 const router = Router();
 
@@ -128,12 +128,16 @@ router.get('/nome', (request: Request, response: Response) => {
 
 
 router.get('/idade', (request: Request, response: Response) => {
+    response.render('pages/idade');
+});
+
+router.post('/idade-resultado', (request: Request, response: Response) => {
 
     let mostrarIdade: boolean = false;
     let idade: number = 0;
 
-    if(request.query.ano) { 
-        let anoNascimento: number = parseInt(request.query.ano as string);
+    if(request.body.ano) { 
+        let anoNascimento: number = parseInt(request.body.ano as string);
         let anoAtual: number = new Date().getFullYear();
 
         idade = anoAtual - anoNascimento;
@@ -143,6 +147,27 @@ router.get('/idade', (request: Request, response: Response) => {
     response.render('pages/idade', {
         idade, 
         mostrarIdade
+    });
+})
+
+router.get('/quadrado', (request: Request, response: Response) => {
+    response.render('pages/quadrado');
+});
+
+router.post('/quadrado-resultado', (request: Request, response: Response) => {
+    let quadrado: number = 0;
+    let mostrarQuadrado: boolean = false; 
+
+    if(request.body.valor) {
+        let valor: number = parseInt(request.body.valor as string);
+
+        quadrado = valor * valor;
+        mostrarQuadrado = true;
+
+    }
+    response.render('pages/quadrado', {
+        quadrado, 
+        mostrarQuadrado
     });
 });
 

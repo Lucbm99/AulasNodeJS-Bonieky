@@ -7,6 +7,7 @@ import mainRoutes from './routes/index';
 import painelRoutes from './routes/painel';
 import carsRoutes from './routes/carros';
 import motosRoutes from './routes/motos';
+import { serialize } from 'v8';
 
 const app = express();
 
@@ -22,6 +23,10 @@ app.engine('mustache', mustache());
 
 //express - pega essa pasta public e torna ela estática
 app.use(express.static(path.join(__dirname, '../public')));
+
+//habilitando a captura de dados da requisição, dentro da rota
+app.use(express.urlencoded({extended: true}));
+
 
 app.use(mainRoutes);
 app.use('/painel', painelRoutes);

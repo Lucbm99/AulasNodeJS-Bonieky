@@ -1,0 +1,14 @@
+{{>partials/header}}
+
+<h2>Tabuada - número ao quadrado</h2>
+
+<form method="POST" action="quadrado-resultado">
+    <input type="number" name="valor" placeholder="Digite um número..." /><br/>
+    <input type="submit" value="Calcular" />
+</form>
+
+{{#mostrarQuadrado}}
+    O dobro do número {{valor}} é {{quadrado}}. 
+{{/mostrarQuadrado}}
+
+{{>partials/footer}}
