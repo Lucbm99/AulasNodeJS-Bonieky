@@ -1,17 +1,12 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+import { cars, listagem, modelos } from "../controllers/carsController";
 
 const router = Router();
 
-router.get('/', (request: Request, response: Response) => {
-    response.send("Aqui é a página inicial sobre os carros");
-});
+router.get('/', cars);
 
-router.get('/listagem', (request: Request, response: Response) => {
-    response.send("Aqui é a página de listagem dos carros");
-});
+router.get('/listagem', listagem);
 
-router.get('/modelos', (request: Request, response: Response)=>{
-    response.send("Aqui é a listagem de modelos de carros");
-});
+router.get('/modelos', modelos);
 
 export default router;

@@ -2,12 +2,14 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
 import mustache from 'mustache-express';
+import dotenv from 'dotenv';
 
 import mainRoutes from './routes/index';
 import painelRoutes from './routes/painel';
 import carsRoutes from './routes/carros';
 import motosRoutes from './routes/motos';
-import { serialize } from 'v8';
+
+dotenv.config();
 
 const app = express();
 
@@ -38,5 +40,5 @@ app.use((request: Request, response: Response)=>{
     response.status(404).send("Página não encontrada!");
 });
 
-app.listen(3000);
+app.listen(process.env.PORT);
 

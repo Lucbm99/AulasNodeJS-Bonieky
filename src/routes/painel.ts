@@ -1,13 +1,10 @@
-import {Router, Request, Response} from 'express';
+import { Router } from 'express';
+import { noticias, painel } from '../controllers/painelController';
 
 const router = Router();
 
-router.get('/', (request: Request, response: Response) => {
-    response.send("Home do painel");
-});
+router.get('/', painel);
 
-router.get('/noticias', (request: Request, response: Response) => {
-    response.send("Lista de noticias cadastradas");
-});
+router.get('/noticias', noticias);
 
 export default router; 

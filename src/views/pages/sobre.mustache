@@ -8,6 +8,13 @@
         {{#materiaisEscritorio}}
             <li>{{nome}} - R$ {{preco}}</li>
         {{/materiaisEscritorio}}
+
+        <hr/>
+        <h2>Produtos abaixo de 10R$ </h2>
+        {{#cheapMateriais}}
+            <li>{{nome}} - R$ {{preco}}</li>
+        {{/cheapMateriais}}
+        
         {{^materiaisEscritorio}}
             Não há materiais escolares disponíveis.
         {{/materiaisEscritorio}}

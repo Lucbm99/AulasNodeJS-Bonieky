@@ -16,6 +16,13 @@
         {{/products}}
     </ul>
 
+    <h2>Produtos a partir de 10R$</h2>
+    <ul>
+        {{#expensiveProducts}}
+            {{>partials/productItem}}
+        {{/expensiveProducts}}
+    </ul>
+
     <hr/>
 
     <ul>
